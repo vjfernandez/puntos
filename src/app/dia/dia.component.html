@@ -1,0 +1,23 @@
+<div class="form-group">
+  {{dow}}
+</div>
+<table class="table">
+  <tr *ngFor="let linea of lineas; let i=index">
+    <td>{{linea.nombre}}</td>
+    <td>{{linea.puntos}}</td>
+    <td><button class="btn btn-sm btn-outline-primary" type="button" (click)="borrar(i)">x</button></td>
+</table>
+<div class="row" >
+  <div class="form-group col-6"><input #nombre [(ngModel)]="tNombre" class="form-control"  type="text"></div>
+  <div class="form-group col-3"><input #puntos [(ngModel)]="tPuntos" class="form-control" type="number" min="1" max="40" ></div>
+  <div class="form-group col-3
+">
+    <button 
+      class="btn" (click)="clicou(nombre.value, puntos.value)" type="button" 
+      [disabled] = "tNombre=='' || tPuntos <= 0"
+    >
+      Click
+    </button>
+  </div>
+</div>
+Total: {{totalPuntos}}
